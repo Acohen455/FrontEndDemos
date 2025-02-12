@@ -41,7 +41,13 @@ async function fetchData(){
         //If the user enters a non-valid number, we will throw an error. Let's just tell the user they messed up in an alert
         alert("Pokemon with id " + userInput + " doesn't exist")
     } finally {
-        //TODO: cleanup code
+        //Finally blocks are good for cleanup. In this case we'll wipe the pokemon data after 3 seconds with setTimeout()
+        setTimeout(() => {
+            pokename.innerText = " "
+            poketype.innerText = " "
+            pokenum.innerText = " "
+            pokepic.setAttribute("src", " ")
+        }, 3000) //3000 milliseconds = 3 seconds
     }
 
 } //end of fetchData
@@ -62,6 +68,11 @@ function renderHTML(data){
     //pokepic is an <img> we need to set the src attribute to get the pokemon's picture rendered
     pokepic.setAttribute("src", data.sprites.front_default)
 
+    //add the pokemon image to the collection at the bottom
+    //this is a great example of a use case for .appendChild()
+    const img = document.createElement("img")
+    img.src = data.sprites.front_default
 
+    document.getElementById("pokeCollection").appendChild(img)
 
 }
