@@ -34,11 +34,22 @@ async function fetchData(){
         const data = await response.json()
 
         console.log(data) //just to see the data
+
+        renderHTML(data) //call the function that puts the data on the page
+
     } catch {
         //TODO: error handling code
     } finally {
         //TODO: cleanup code
     }
 
+} //end of fetchData
+
+//This function will take in the JS data as a parameter and render it on the page
+function renderHTML(data){
+
+    //populate the table with our pokemon data (change the innertext of the dom selections)
+    pokename.innerText = data.name
+    poketype.innerText = data.types[0].type.name
 
 }
