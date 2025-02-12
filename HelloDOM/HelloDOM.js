@@ -28,3 +28,22 @@ function buttonFunction(){
     p2.textContent = "I have content now! Thanks"
 }
 
+//Let's see examples of mousing over stuff
+//(Just to show some other events besides clicks)
+
+//DOM selection of the header 
+const header = document.getElementById("header")
+
+//Quicker way to add event listeners:
+header.onmouseover = mouseOverFunction
+header.onmouseleave = mouseLeaveFunction
+
+function mouseOverFunction(){
+    header.setAttribute("style", "color:red")
+    header.innerText = "DON'T TOUCH ME!"
+}
+
+function mouseLeaveFunction(){
+    header.setAttribute("style", "color:blue")
+    header.innerText = "why did you leave :("
+}
