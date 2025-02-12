@@ -38,7 +38,8 @@ async function fetchData(){
         renderHTML(data) //call the function that puts the data on the page
 
     } catch {
-        //TODO: error handling code
+        //If the user enters a non-valid number, we will throw an error. Let's just tell the user they messed up in an alert
+        alert("Pokemon with id " + userInput + " doesn't exist")
     } finally {
         //TODO: cleanup code
     }
@@ -53,6 +54,8 @@ function renderHTML(data){
 
     //since a pokemon can have multiple types, this helps us account for all of them
     poketype.innerText = data.types.map(item => item.type.name).join(', ')
+    //^The map function will provide an array of values, and we're using to append pokemon types to the poketype <td>
+    //.join(', ') will add a comma delimiter after element except the last one, AND turn the value into a string
 
     pokenum.innerText = data.id
 
