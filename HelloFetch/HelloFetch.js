@@ -50,6 +50,15 @@ function renderHTML(data){
 
     //populate the table with our pokemon data (change the innertext of the dom selections)
     pokename.innerText = data.name
-    poketype.innerText = data.types[0].type.name
+
+    //since a pokemon can have multiple types, this helps us account for all of them
+    poketype.innerText = data.types.map(item => item.type.name).join(', ')
+
+    pokenum.innerText = data.id
+
+    //pokepic is an <img> we need to set the src attribute to get the pokemon's picture rendered
+    pokepic.setAttribute("src", data.sprites.front_default)
+
+
 
 }
