@@ -26,6 +26,20 @@ export const Calculation:React.FC = () => {
 
 
     //Function to do the calculation and store it in the result state object
+    const calculateResult = () => {
+
+        //TODO: user input handling would be good here (check for valid numbers, or existence of both numbers)
+
+        //We can use the Math class to calculate hypotenuse
+        const result = Math.hypot(SideA, SideB) //<- These values are stored in the state objects
+
+        //Set the result using the setResult mutator
+        setResult(result)
+
+        //Yes, this could have just been one line inside setResult() :)
+        //Probably less confusing that way, as there are now 2 different variables called "result"
+
+    }
 
     return(
         <div className="input-container">
@@ -34,9 +48,9 @@ export const Calculation:React.FC = () => {
             <input type="number" name="SideA" onChange={storeValues}/>
             <input type="number" name="SideB" onChange={storeValues}/>
 
-            <p>Result: </p>
+            <p>Result: {result}</p>
 
-            <button>Calculate!</button>
+            <button onClick={calculateResult}>Calculate!</button>
         </div>
     )
 
