@@ -13,9 +13,9 @@ function App() {
       <h5>In a real app, we wouldn't put this statically in app.tsx^ everything would be routed probably</h5>
 
       {/* Defining Routes 
-      
-      TODO: anatomy notes
-      */}
+          -path specifies the URL that shows the component
+          -element specifies which component you want to render with that URL
+       */}
       <BrowserRouter>
         <Routes>
           <Route path="calc" element={<Calculation/>}/>
