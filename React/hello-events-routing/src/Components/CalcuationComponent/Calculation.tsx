@@ -1,3 +1,5 @@
+import "./Calculation.css"
+
 export const Calculation:React.FC = () => {
 
 
