@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { ChildComponent } from "./ChildComponent"
 
 export const ParentComponent:React.FC = () => {
 
@@ -20,10 +21,11 @@ export const ParentComponent:React.FC = () => {
     const [favSong, setSong] = useState<string>("No Quarter")
 
 
+    //We can establish parent/child relationships by rendering a component inside another component
     return(
         <>
             <h3>Hello from the Parent Component. My Child says:</h3>
-
+            <ChildComponent color={favColor} song={favSong}/>
         </>
     )
 }
