@@ -2,6 +2,14 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { FirstComponent } from './Components/FirstComponent'
+
+
+/* The App.tsx is the root of our app (at least when it comes to rendering views on the page) 
+
+Most of the code we write will go elsewhere in the src folder, but App.tsx controls WHAT gets rendered
+
+We'll put any components we want to render in the return() of App.tsx */
 
 function App() {
 
@@ -17,7 +25,7 @@ function App() {
 
       {/* Rendering some custom components below */}
 
-      
+      <FirstComponent/>
 
     </>
   )
