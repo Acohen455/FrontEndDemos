@@ -8,11 +8,15 @@ In this Component, we're providing no arguments, hence the empty () =>
     -Basically we're defining what datatype this function returns */
 export const FirstComponent:React.FC = () => {
 
+    //We can define variables and logic in the space above the return()
+    const message:string = "I am a value stored in FirstComponent, and rendered in TSX."
 
+    //we can use {data binding} to render variable values onto our view
 
     return(
         <>
             <h4>Hello from FirstComponent</h4>
+            <p>Data Binding: {message}</p>
         </>
     )
 
