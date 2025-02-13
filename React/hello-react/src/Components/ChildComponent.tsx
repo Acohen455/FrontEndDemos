@@ -6,9 +6,6 @@ ParentComponent will render a ChildComponent in its return() and pass some value
 We defined an Interface (which is like a Java Model Class) to define the Child's props
 We can then use these values once they're sent in from the Parent.
 */
-
-import { ParentComponent } from "./ParentComponent"
-
 interface ChildProps{
     color:string
     song:string
