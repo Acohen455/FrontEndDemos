@@ -16,8 +16,10 @@ export const Calculation:React.FC = () => {
         if(event.target.name === "SideA"){
             setSideA(parseInt(event.target.value))
         } else {
-            setSideB(parseInt(event.target.value))
+            setSideB(Number(event.target.value))
         }
+        //Note the 2 different ways we can explicitly cast to a number^
+        //Number() is considered best practice. Number will return NaN if not a number
 
         //"event" is the entire onChange event object (which has the input element and its value)
         //"target" is the Input element that was changed
@@ -45,10 +47,20 @@ export const Calculation:React.FC = () => {
         <div className="input-container">
             <h3>Calculation Component</h3>
 
+            {/* Conditional Rendering! If SideA or SideB are <= 0... 
+            render a message telling the user to input valid values */}
+            <p>
+                {SideA <= 0 || SideB <= 0 ? "Please enter 2 valid values to calculate hypotenuse" : " "}
+            </p>
+
             <input type="number" name="SideA" onChange={storeValues}/>
             <input type="number" name="SideB" onChange={storeValues}/>
 
-            <p>Result: {result}</p>
+            
+            <p>
+                {/* If the result state value is truthy, tell the user their result */}
+                {result ? "You calculated: " + result : ""}
+            </p>
 
             <button onClick={calculateResult}>Calculate!</button>
         </div>
