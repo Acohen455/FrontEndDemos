@@ -7,7 +7,8 @@ export const Character:React.FC<CharacterInterface> = (character:CharacterInterf
 
     return(
         <>
-            <h3>{character.name} from {character.house}</h3>
+            {/* Conditional Rendering since the character may not have a house */}
+            <h3>{character.name} from {character.house ? character.house : "No Affiliated House"}</h3>
 
             <h4>{character.name} says {character.quote}</h4>
         </>

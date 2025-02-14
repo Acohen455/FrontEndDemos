@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { CharacterInterface } from "../../Interfaces/CharacterInterface"
+import { Character } from "./Character"
 
 //We can render a list of elements with the map() function
 export const CharacterList:React.FC = () => {
@@ -44,12 +45,22 @@ export const CharacterList:React.FC = () => {
         <div>
             <h3>Character List: </h3>
 
-            {/* using map() to render a Character Component for every character in the Array */}
+            {/* using map() to render a Character Component for every character in the Array 
+            We're using the index of the Array as the map's key (should probably use a characterId)*/}
             <div>
-                {characters.map((character:CharacterInterface) => {
-                    return <p>{character.name}</p>
+                {characters.map((character:CharacterInterface, index:number) => {
+                    return <Character {...character} key={index}/>
                 })}
             </div>
+
+            {/* What's happening here?^ 
+            -Iterating (mapping) through the characters Array
+            -For every CharacterInterface object in the Array, render one Character components
+            -We must include the spread operator (...) if we want to pass in an entire object
+            
+            Why do we need the spread operator?
+            It "spreads" the object out into individually accessible variables
+            So it's just a requirement, we can't add the object unless we make destructure variables like this*/}
 
         </div>
     )
