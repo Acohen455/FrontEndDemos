@@ -37,14 +37,19 @@ export const CharacterList:React.FC = () => {
                 }
             ]
         )
-
-    })
-
+    }, []) //we added [] as the second param, which means this useEffect will invoke once the component loads
 
 
     return(
         <div>
             <h3>Character List: </h3>
+
+            {/* using map() to render a Character Component for every character in the Array */}
+            <div>
+                {characters.map((character:CharacterInterface) => {
+                    return <p>{character.name}</p>
+                })}
+            </div>
 
         </div>
     )
